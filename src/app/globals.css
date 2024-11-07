@@ -1,42 +1,104 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*RESET*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* DECLARE VARIABLES */
+:root {
+  /* colors */
+  --background: #ffffff;
+  --foreground: #171717;
+  --lightGray: #E8E8E8;
+  --mediumGray: #CECECE;
+  --darkGray: #8D8D8D; 
+  --cyan:#00A2C7;
+  --teal:#53B9AB;
+  --textColor:#1C2024;
+  --secTextColor:#60646C;
+
+
+  /* border radius */
+  --smallRadius: 0.2rem;
+  --mediumRadius: 0.5rem;
+
+    /* spacing */
+  --xSmallSpace: 0.3rem;
+  --smallSpace: 0.5rem;
+  --mediumSpace: 1rem;
+  --largeSpace: 3rem;
+
+
+  /* font */
+  --font: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  /* animation curves */
+  --easeInOut:cubic-bezier(0.77, 0.07, 1, 1);
+  --ease:cubic-bezier(0.5, 0.09, 0.56, 1.07);
+
+  /* shadows*/
+  --centerShadow:0px 0px 6px -1px  var(--mediumGray); 
+  --deepShadow:0px 0px 10px -1px var(--mediumGray);
+}
+
+/* LAYOUT */
+.container {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+
+
