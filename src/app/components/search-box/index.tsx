@@ -1,35 +1,26 @@
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent } from "react";
 import styles from "./search-box.module.css";
 import SearchIcon from "./search-icon";
+import { useSearch } from "@/app/hooks";
 
-export interface SearchBoxProps {
-  onChange: (value: string) => void;
-  onSubmit: (value: FormDataEntryValue | null) => void;
-}
+export default function SearchBox() {
+  const { setSearch } = useSearch();
 
-export default function SearchBox({ onChange, onSubmit }: SearchBoxProps) {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    onChange(e.target.value);
-  };
 
-  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-
-    onSubmit(formData.get("search-planet"));
+    setSearch(e.target.value);
   };
 
   return (
-    <form className={styles.form} onSubmit={handleOnSubmit}>
+    <form className={styles.form}>
       <fieldset className={styles.flexContainer}>
         <input
           className={styles.input}
           type="search"
           placeholder="search planet"
-          id="search-planet"
-          name="search-planet"
+          id="search"
+          name="search"
           title="type to search a planet"
           aria-label="type to search a planet"
           onChange={handleOnChange}
