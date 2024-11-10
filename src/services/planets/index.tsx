@@ -1,7 +1,7 @@
 import { PlanetsResult } from "@/types";
 import { BASE_URL } from "../constants";
 
-export async function getPlanets(search: string | null, page = "1"): Promise<PlanetsResult> {
+export async function getPlanets(search: string | null, page: string): Promise<PlanetsResult> {
   const queryParams = new URLSearchParams({
     page,
   });
