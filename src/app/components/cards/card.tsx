@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export interface CardProps {
   title: string;
+  href: string;
   children: ReactNode;
 }
 
-export function Card({ title, children }: CardProps, ref: ForwardedRef<HTMLLIElement>) {
-  const href = encodeURI(`/planets/${title}`);
+export function Card({ title, href, children }: CardProps, ref: ForwardedRef<HTMLLIElement>) {
   return (
     <li className={styles.card} ref={ref}>
       <h2 className={styles.title}>{title}</h2>

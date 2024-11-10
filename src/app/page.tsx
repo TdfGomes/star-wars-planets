@@ -5,6 +5,7 @@ import SearchBox from "./components/search-box";
 import CardsList from "./components/cards/card-list";
 import Card from "./components/cards/card";
 import styles from "./page.module.css";
+import { getHref } from "./helpers";
 
 export default function Planets() {
   const { getSearch } = useSearch();
@@ -18,8 +19,8 @@ export default function Planets() {
         <h2 className={styles.noResults}>No planet found for: {query}</h2>
       )}
       <CardsList>
-        {planets?.map(({ name, population }) => (
-          <Card key={name} title={name} ref={ref}>
+        {planets?.map(({ name, population, url }) => (
+          <Card key={name} title={name} ref={ref} href={getHref(url)}>
             <p>
               <b>Population:</b>
               {population}
