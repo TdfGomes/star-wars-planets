@@ -1,51 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Star Wars Planets Explorer
 
-Welcome!
+## Description
 
-Following our previous conversation, we’d like to invite you to our technical challenge where you can showcase all your talents. We know this we’ll be a walk-in-the-park and respect your schedule so rest assured that it won’t take too much of your spare time.
+This project is a single-page application that showcases a paginated list of planets from the Star Wars universe. It utilizes the [SWAPI (Star Wars API)](https://swapi.dev/documentation#intro) to fetch and display planet data. Built with Next.js, this application offers an interactive and user-friendly interface for exploring the diverse worlds of Star Wars.
 
-## **Overview**
+## Features
 
-The main goal of this exercise is for you to do a single page showing a paginated list (either as a table, list, or cards) of weird-named planets from Star Wars. You’ll consume a simple API from [SWAPI](https://swapi.dev/documentation#intro) which you’ll then treat and show.
+### Functional Requirements
 
-Feel free to use any components’ library and any Jedi mind tricks you like.
+- **Planet Search**: Users can search for specific planets by name.
+- **Pagination**: Navigate through the list of planets with ease.
+- **Planet Details**: View detailed information about each selected planet.
 
-Let's go!
+### Non-Functional Requirements
 
-## **Task requirements**
-The main requirements are:
-- The user should be able to search for planets;
-- The user should be able to paginate the list of planets;
-- The user should be able to see details about the selected planet.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Performance**: Fast loading times and smooth interactions.
+- **Accessibility**: Compliant with accessibility standards to ensure usability for all users.
 
-API Documentation: https://swapi.dev/documentation#intro
+## Technologies Used
 
-## **Delivery instructions**
-Fork this repository to your own github profile and use it to develop your solution. After done, just send us the link for your forked repository.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- SWAPI (Star Wars API)
 
-## **What we expect**
-⚛️ React and TypeScript
+## Getting Started
 
-🐞 Unit / integration tests
+### Prerequisites
 
-💅 A nice design using CSS
+- Node.js (version 14 or later)
+- npm or yarn
 
-📄 Clear README.md
+### Installation
 
-## What w**e’d love to see**
+1. Clone the repository:
 
-🔥 NextJS
+```bash
+git clone https://github.com/yourusername/star-wars-planets.git
+```
 
-🔥 TanStack Query / SWR
+2. Navigate to the project directory:
 
-## What would be nice
-If you have the time, you might want to add these to your project:
+```bash
+cd star-wars-planets
+```
 
-🎨 Responsive layout
+3. Install dependencies:
 
-📱 Mobile suppport
+```bash
+npm install
+```
 
-## **Additional information**
-Feel free to reach out if you have any question and don’t hesitate regardless of how simple or silly your questions might look like. We are here to provide you all the conditions for you to shine ✨
+4. Start the development server:
 
-There’s no deadline only good sense.
+```bash
+npm run dev
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+6. Run tests:
+
+```bash
+npm run tests
+```
+
+## Usage
+
+- Use the search bar to find specific planets.
+- Click on the pagination controls to navigate through the list of planets.
+- Select a planet to view its detailed information.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+To remind that this project use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+
+## Acknowledgments
+
+- Data provided by [SWAPI](https://swapi.dev/)
+- Built with [Next.js](https://nextjs.org/)
