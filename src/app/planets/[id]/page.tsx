@@ -8,6 +8,7 @@ import Details from "./components/details";
 import { iconsMap } from "./constants";
 import { ChevronLeft, ChevronRight } from "./components/chevrons";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 interface PlanetId {
   id: string;
@@ -25,12 +26,6 @@ export default function PlanetDetails({ params }: PlanetDetailsProps) {
 
   const { name: planetName, ...details } = planet as MappedPlanet;
 
-  const handleOnClick = (idNum: number) => () => {
-    if (idNum >= 1 && idNum <= 60) {
-      router.push(`/planets/${idNum}`);
-    }
-  };
-
   const handleOnGoBack = () => {
     router.push("/");
   };
@@ -41,11 +36,15 @@ export default function PlanetDetails({ params }: PlanetDetailsProps) {
   return (
     <div className={styles.container}>
       {prevPlanet >= 1 && (
-        <ChevronLeft onClick={handleOnClick(prevPlanet)} title="Go to previous planet" />
+        <Link className={styles.link} href={`/planets/${prevPlanet}`} title="Go to previous planet">
+          <ChevronLeft />
+        </Link>
       )}
       <Details title={planetName} details={details} onClick={handleOnGoBack} icons={iconsMap} />
       {nextPlanet <= 60 && (
-        <ChevronRight onClick={handleOnClick(nextPlanet)} title="Go to next planet" />
+        <Link className={styles.link} href={`/planets/${nextPlanet}`} title="Go to next planet">
+          <ChevronRight />
+        </Link>
       )}
     </div>
   );

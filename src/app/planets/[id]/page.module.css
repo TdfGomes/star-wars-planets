@@ -3,3 +3,32 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.link {
+  text-transform: none;
+  &:first-of-type{
+    transform: translateX(-5%);
+    &:hover{
+      animation: moveLeft 500ms ease 0s infinite alternate none;
+    }
+  }
+  &:last-of-type{
+    transform: translateX(5%);
+    &:hover{
+      animation: moveRight 500ms ease 0s infinite alternate none;
+    }
+  }
+}
+
+@keyframes moveLeft {
+  to {
+    transform: translateX(5%);
+  }
+}
+
+@keyframes moveRight {
+  to {
+    transform: translateX(-5%);
+  }
+}
+
