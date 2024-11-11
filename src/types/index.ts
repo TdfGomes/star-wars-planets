@@ -25,3 +25,16 @@ export interface Planet {
   edited: string;
   url: string;
 }
+
+export type MappedPlanet = Pick<
+  Planet,
+  | "name"
+  | "rotation_period"
+  | "orbital_period"
+  | "diameter"
+  | "climate"
+  | "gravity"
+  | "terrain"
+  | "surface_water"
+  | "population"
+>;

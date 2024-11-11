@@ -1,10 +1,13 @@
-import { getPlanets } from "@/services";
-import { Planet, PlanetsResult } from "@/types";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { getPlanets, getPlanetById } from "@/services";
+import { Planet, PlanetsResult, MappedPlanet } from "@/types";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-const QUERY_KEY = "GET_PLANETS";
+const QUERY_KEY = Object.freeze({
+  getPlanets: "GET_PLANETS",
+  getPlanetById: "GET_PLANET_BY_ID",
+});
 
 export function useInfinitePlanets(search: string | null) {
   const observer = useRef<IntersectionObserver>();
@@ -12,7 +15,7 @@ export function useInfinitePlanets(search: string | null) {
     PlanetsResult,
     Error
   >({
-    queryKey: [QUERY_KEY, ...(search ? [search] : [])],
+    queryKey: [QUERY_KEY.getPlanets, ...(search ? [search] : [])],
     queryFn: ({ pageParam }) => getPlanets(search, pageParam as string),
     initialPageParam: "1",
     getNextPageParam: (lastPage) => {
@@ -54,6 +57,38 @@ export function useInfinitePlanets(search: string | null) {
     hasNextPage,
     isFetching,
   };
+}
+
+function selectPlanetDetails({
+  name,
+  rotation_period,
+  orbital_period,
+  diameter,
+  climate,
+  gravity,
+  terrain,
+  surface_water,
+  population,
+}: Planet) {
+  return {
+    name,
+    rotation_period,
+    orbital_period,
+    diameter,
+    climate,
+    gravity,
+    terrain,
+    surface_water,
+    population,
+  };
+}
+
+export function useGetPlanetById(id: string) {
+  return useQuery<Planet, Error, MappedPlanet>({
+    queryKey: [QUERY_KEY, id],
+    queryFn: () => getPlanetById(id),
+    select: selectPlanetDetails,
+  });
 }
 
 export function useSearch() {
