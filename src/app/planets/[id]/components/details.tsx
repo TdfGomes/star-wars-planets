@@ -46,7 +46,7 @@ export default function Details({
         ))}
       </ul>
       <button className={styles.btn} onClick={handleOnClick}>
-        <span>Go Back</span>
+        <span>Planet List</span>
       </button>
     </div>
   );

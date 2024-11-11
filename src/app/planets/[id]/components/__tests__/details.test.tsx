@@ -45,7 +45,7 @@ test("should display a given title, details and icon images", () => {
 test("should be able to click a button and onClick should be called", async () => {
   const { user } = render(<Details {...props} />);
 
-  await user.click(screen.getByRole("button", { name: /go back/i }));
+  await user.click(screen.getByRole("button", { name: /planet list/i }));
 
   await waitFor(() => {
     expect(mockOnClick).toHaveBeenCalledTimes(1);
