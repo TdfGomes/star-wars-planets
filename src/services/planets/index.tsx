@@ -1,17 +1,16 @@
 import { Planet, PlanetsResult } from "@/types";
 import { BASE_URL } from "../constants";
 
-export async function getPlanets(search: string | null, page: string): Promise<PlanetsResult> {
-  const queryParams = new URLSearchParams({
-    page,
-  });
+export const initialUrl = `${BASE_URL}/planets?page=1`;
 
-  if (search) {
-    queryParams.append("search", search);
-  }
+export async function getPlanets(
+  search?: string | null,
+  page?: string | null,
+): Promise<PlanetsResult> {
+  const url = !page ? initialUrl : page;
 
   try {
-    const data = await fetch(`${BASE_URL}/planets?${queryParams}`);
+    const data = await fetch(!search ? url : `${url}&search=${search}`);
 
     return data.json();
   } catch (e) {

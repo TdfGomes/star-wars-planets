@@ -1,4 +1,4 @@
-import { getPlanets, getPlanetById } from "@/services";
+import { getPlanets, getPlanetById, initialUrl } from "@/services";
 import { Planet, PlanetsResult, MappedPlanet } from "@/types";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
@@ -17,12 +17,9 @@ export function useInfinitePlanets(search: string | null) {
   >({
     queryKey: [QUERY_KEY.getPlanets, ...(search ? [search] : [])],
     queryFn: ({ pageParam }) => getPlanets(search, pageParam as string),
-    initialPageParam: "1",
+    initialPageParam: initialUrl,
     getNextPageParam: (lastPage) => {
-      const url = new URL(lastPage.next);
-      const searchParams = new URLSearchParams(url.search);
-
-      return searchParams.get("page");
+      return lastPage.next;
     },
   });
 
@@ -40,7 +37,7 @@ export function useInfinitePlanets(search: string | null) {
 
       if (node) observer.current.observe(node);
     },
-    [fetchNextPage, hasNextPage, isFetching, isLoading],
+    [fetchNextPage, isLoading, hasNextPage, isFetching],
   );
 
   const planets = useMemo(() => {
