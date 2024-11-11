@@ -4,23 +4,25 @@ import styles from "./chevrons.module.css";
 interface ButtonProps {
   onClick: () => void;
   children: ReactNode;
+  title?: string;
 }
 
 interface ButtonIconPros extends SVGProps<SVGSVGElement> {
   onClick: ButtonProps["onClick"];
+  title: ButtonProps["title"];
 }
 
-function Button({ children, onClick }: ButtonProps) {
+export function Button({ children, onClick, title }: ButtonProps) {
   return (
-    <button onClick={onClick} className={styles.chev}>
+    <button onClick={onClick} className={styles.chev} title={title}>
       {children}
     </button>
   );
 }
 
-export function ChevronLeft({ onClick, ...props }: ButtonIconPros) {
+export function ChevronLeft({ onClick, title, ...props }: ButtonIconPros) {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} title={title}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -41,9 +43,9 @@ export function ChevronLeft({ onClick, ...props }: ButtonIconPros) {
   );
 }
 
-export function ChevronRight({ onClick, ...props }: ButtonIconPros) {
+export function ChevronRight({ onClick, title, ...props }: ButtonIconPros) {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} title={title}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

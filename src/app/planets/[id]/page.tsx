@@ -40,9 +40,13 @@ export default function PlanetDetails({ params }: PlanetDetailsProps) {
 
   return (
     <div className={styles.container}>
-      {prevPlanet >= 1 && <ChevronLeft onClick={handleOnClick(prevPlanet)} />}
+      {prevPlanet >= 1 && (
+        <ChevronLeft onClick={handleOnClick(prevPlanet)} title="Go to previous planet" />
+      )}
       <Details title={planetName} details={details} onClick={handleOnGoBack} icons={iconsMap} />
-      {nextPlanet <= 60 && <ChevronRight onClick={handleOnClick(nextPlanet)} />}
+      {nextPlanet <= 60 && (
+        <ChevronRight onClick={handleOnClick(nextPlanet)} title="Go to next planet" />
+      )}
     </div>
   );
 }
