@@ -38,8 +38,10 @@ export default function Details({
               aria-hidden="true"
               className={styles.img}
             />
-            <b>{capitalize(propName)}: </b>
-            {propValue}
+            <p>
+              <b>{capitalize(propName)}: </b>
+              <span>{propValue}</span>
+            </p>
           </li>
         ))}
       </ul>

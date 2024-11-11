@@ -1,5 +1,9 @@
 .container {
   padding: var(--mediumSpace);
+  width: 80%;
+  margin: var(--largeSpace) auto;
+  border-radius: var(--mediumRadius);
+  box-shadow: var(--deepShadow);
 }
 
 .title {
@@ -40,6 +44,7 @@
   gap: var(--normalSpace); 
   margin-bottom: var(--smallSpace); 
   color: var(--secTextColor);
+  text-align: left;
 }
 
 .img {
