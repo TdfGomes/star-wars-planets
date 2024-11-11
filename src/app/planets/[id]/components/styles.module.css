@@ -4,6 +4,7 @@
   margin: var(--largeSpace) auto;
   border-radius: var(--mediumRadius);
   box-shadow: var(--deepShadow);
+  background: white;
 }
 
 .title {
@@ -110,3 +111,5 @@
   }
 
 }
+
+
