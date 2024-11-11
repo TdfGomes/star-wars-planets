@@ -58,4 +58,14 @@
 }
 
 
+/* Small devices such as phones (768px or lesser) */
+@media only screen and (max-width: 768px) {
+  .flexContainer {
+    width: 90%;
+  }
+
+  .input{
+    font-size: 1.5rem;
+  }
+}
 

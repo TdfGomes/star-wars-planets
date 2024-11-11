@@ -112,4 +112,17 @@
 
 }
 
+/* Medium devices such as tablets (1024px or lesser) */
+@media only screen and (max-width: 1024px) {
+  .list {
+    column-count: 1;
+    column-gap: 15rem;
+  }
+}
 
+/* Small devices such as phones (768px or lesser) */
+@media only screen and (max-width: 768px) {
+  .item {
+    font-size: 1.2rem;
+  }
+}
