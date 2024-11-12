@@ -2,11 +2,12 @@ import { render, screen, waitFor } from "test-utils";
 import SearchBox from "..";
 
 const mockSetSearch = vi.fn();
+const mockGetSearch = vi.fn();
 
 vi.mock("@/app/hooks", async () => ({
   ...(await vi.importActual("@/app/hooks")),
   useSearch: () => ({
-    getSearch: vi.fn().mockReturnValue("planet name"),
+    getSearch: mockGetSearch,
     setSearch: mockSetSearch,
   }),
 }));
@@ -20,6 +21,7 @@ test("should be able to type in the input", async () => {
   const { user } = render(<SearchBox />);
 
   const searchBox = screen.getByRole("searchbox", { name: /search a planet/i });
+
   await user.type(searchBox, "planet name");
 
   expect(searchBox).toHaveValue("planet name");
@@ -27,4 +29,14 @@ test("should be able to type in the input", async () => {
   await waitFor(() => {
     expect(mockSetSearch).toHaveBeenCalledWith("planet name");
   });
+});
+
+test("should populate field with default value from search query", () => {
+  mockGetSearch.mockReturnValueOnce("Default planet value");
+
+  render(<SearchBox />);
+
+  expect(screen.getByRole("searchbox", { name: /search a planet/i })).toHaveValue(
+    "Default planet value",
+  );
 });

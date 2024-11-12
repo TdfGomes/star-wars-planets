@@ -4,7 +4,7 @@ import SearchIcon from "./search-icon";
 import { useSearch } from "@/app/hooks";
 
 export default function SearchBox() {
-  const { setSearch } = useSearch();
+  const { setSearch, getSearch } = useSearch();
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -16,6 +16,7 @@ export default function SearchBox() {
     <form className={styles.form}>
       <fieldset className={styles.flexContainer}>
         <input
+          defaultValue={getSearch() || ""}
           className={styles.input}
           type="search"
           placeholder="search planet"
