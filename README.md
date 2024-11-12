@@ -30,8 +30,9 @@ This project is a single-page application that showcases a paginated list of pla
 
 ### Prerequisites
 
-- Node.js (version 14 or later)
-- npm or yarn
+- Node.js (version 20 or later)
+- npm 
+- nvm (is optional but recommended)
 
 ### Installation
 
@@ -47,21 +48,27 @@ git clone https://github.com/yourusername/star-wars-planets.git
 cd star-wars-planets
 ```
 
-3. Install dependencies:
+3. Set node version: 
+
+```bash
+nvm use
+```
+
+4. Install dependencies:
 
 ```bash
 npm install
 ```
 
-4. Start the development server:
+5. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-6. Run tests:
+7. Run tests:
 
 ```bash
 npm run tests
